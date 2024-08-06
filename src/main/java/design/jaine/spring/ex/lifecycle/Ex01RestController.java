@@ -20,7 +20,7 @@ public class Ex01RestController {
 	
 	@RequestMapping("4")
 	// status code 전달
-	public ResponseEntity entityResponse() {
+	public ResponseEntity<Person> entityResponse() {
 		Person me = new Person("신윤수", 21);
 		
 		// HTTP Status Code
@@ -30,7 +30,7 @@ public class Ex01RestController {
 		// 405 METHOD NOT ALLOW : 메소드가 일치하지 않음 (GET, POST)
 		// 500 INTERNAL SERVER ERROR : 서버 에러 (내 코드 확인)
 		
-		return new ResponseEntity(me, HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<>(me, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 }
