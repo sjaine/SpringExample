@@ -26,4 +26,24 @@ public class ReviewController {
 		return review;
 	}
 	
+	// 리뷰 정보를 저장하는 페이지
+	@RequestMapping("/mybatis/review/create")
+	@ResponseBody
+	public String createReview() {
+		// 4, 치즈피자, 김인규, 4.5, 치즈피자 존맛!
+		// int count = reviewService.addReview(4, "치즈피자", "김인규", 4.5, "치즈피자 존맛");
+		
+		// 2, 뿌링클, 김인규, 4.0, 역시 뿌링클
+		Review review = new Review();
+		review.setStoreId(2);
+		review.setMenu("뿌링클");
+		review.setUserName("김인규");
+		review.setPoint(4.0);
+		review.setReview("역시 뿌링클");
+		
+		int count =reviewService.addReviewByObject(review);
+		
+		return "입력 개수: " + count;
+	}
+	
 }

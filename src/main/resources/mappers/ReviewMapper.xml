@@ -20,7 +20,54 @@
  			`new_review`
  		WHERE 
  			`id` = #{id}
- 			
  	</select>
- 
+ 	
+ 	<insert id="insertReview" parameterType="map">
+ 		INSERT INTO
+ 			`new_review`
+		(
+			`storeId`
+			, `menu`
+			, `userName`
+			, `point`
+			, `review`
+		)
+ 		VALUE
+ 		(
+ 			#{storeId}
+ 			, #{menu}
+ 			, #{userName}
+ 			, #{point}
+ 			, #{review}
+ 		)
+ 	</insert>
+ 	
+ 	<insert id="insertReviewByObject" parameterType="design.jaine.spring.ex.mybatis.domain.Review">
+ 		INSERT
+ 			`new_review`
+		(
+			`storeId`
+			, `menu`
+			, `userName`
+			, `point`
+			, `review`
+		)
+ 		VALUE
+ 		(
+ 			#{storeId}
+ 			, #{menu}
+ 			, #{userName}
+ 			, #{point}
+ 			, #{review}
+ 		)
+ 	</insert>
+ 	 
  </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
