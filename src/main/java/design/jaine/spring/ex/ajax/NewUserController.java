@@ -54,4 +54,23 @@ public class NewUserController {
 	public String userInput() {
 		return "ajax/userInput";
 	}
+	
+	@GetMapping("/duplicate-email")
+	@ResponseBody
+	public Map<String, Boolean> isDuplicateEmail(@RequestParam("email") String email) {
+		boolean isDuplicateEmail = userService.isDuplicateEmail(email);
+		
+		// {"isDuplicate": true} {"isDuplicate": false}
+		Map<String, Boolean> resultMap = new HashMap<>();
+		
+		if(isDuplicateEmail) {
+			resultMap.put("isDuplicate", true);
+		} else {
+			resultMap.put("isDuplicate", false);
+		}
+		
+		return resultMap;
+	}
+	
+	
 }
