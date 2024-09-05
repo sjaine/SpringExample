@@ -15,13 +15,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Builder
+@Builder(toBuilder=true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Setter
 @Table(name="student")
 @Entity
 public class Student {
@@ -34,6 +32,7 @@ public class Student {
 	
 	@Column(name="phoneNumber")
 	private String phoneNumber;
+	
 	private String email;
 	
 	@Column(name="dreamJob")
